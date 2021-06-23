@@ -1,12 +1,32 @@
 function computerPlay() {
   let computer = Math.floor(Math.random() * 3) + 1;
   if (computer == 1) {
-    console.log("rock");
+    return "rock";
   } else if (computer == 2) {
-    console.log("paper");
+    return "paper";
   } else if (computer == 3) {
-    console.log("scissors");
+    return "scissors";
   }
 }
 
-computerPlay();
+// console.log(computerSelection);
+
+computerSelection = computerPlay();
+playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+
+function playRound (playerSelection, computerSelection) {
+  if (playerSelection == "rock" && computerSelection == "paper") {
+    return "you lose! " + computerSelection + " beats " + playerSelection; 
+  } else if ( playerSelection == "paper" && computerSelection == "scissors") {
+    return "you lose! " + computerSelection + " beats " + playerSelection; 
+  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    return "you lose! " + computerSelection + " beats " + playerSelection; 
+  } else if (playerSelection == computerSelection) {
+    return "it's a tie!";
+  } else {
+    return "you won " + playerSelection + " beats " + computerSelection;
+  }
+} 
+
+console.log(playRound(playerSelection, computerSelection));
+// console.log(playerSelection, computerSelection);
