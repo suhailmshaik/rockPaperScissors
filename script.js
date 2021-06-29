@@ -11,34 +11,46 @@ function computerPlay() {
 
 // console.log(computerSelection);
 
-computerSelection = computerPlay();
 playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
 // computerSelection;
 
 function playRound() {
   let c = 0;
   let p = 0;
-  computerSelection;
+  computerSelection = computerPlay();
   playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+  // console.log(playerSelection, computerSelection);
+
+  // if (playerSelection != computerSelection) {
+  //   alert(
+  //     "please enter the correct spelling for rock, paper, scissors and stop fucking around u bitch!"
+  //   );
+  // } else
 
   if (playerSelection == "rock" && computerSelection == "paper") {
     c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
+    return c;
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
     c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
+    return c;
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
     c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
+    return c;
   } else if (playerSelection == computerSelection) {
     alert("it's a tie!");
   }
+
   // else if (playerSelection != computerSelection) {
-  //   return "please enter the correct spelling for rock, paper, scissors and stop fucking around u bitch!";
-  // }
+  //   alert(
+  //     "please enter the correct spelling for rock, paper, scissors and stop fucking around u bitch!"
   else {
     p = p + 1;
     alert("you won " + playerSelection + " beats " + computerSelection);
+    //   );
+    return p;
   }
 }
 
@@ -50,8 +62,6 @@ function playRound() {
 
 function game() {
   for (i = 0; i < 5; i++) {
-    // cS = computerSelection;
-    // playerSelection;
     playRound();
   }
 }
