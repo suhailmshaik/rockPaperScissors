@@ -13,22 +13,48 @@ function computerPlay() {
 
 computerSelection = computerPlay();
 playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+// computerSelection;
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+  let c = 0;
+  let p = 0;
+  computerSelection;
+  playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+
   if (playerSelection == "rock" && computerSelection == "paper") {
-    return "you lose! " + computerSelection + " beats " + playerSelection;
+    c = c + 1;
+    alert("you lose! " + computerSelection + " beats " + playerSelection);
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    return "you lose! " + computerSelection + " beats " + playerSelection;
+    c = c + 1;
+    alert("you lose! " + computerSelection + " beats " + playerSelection);
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    return "you lose! " + computerSelection + " beats " + playerSelection;
+    c = c + 1;
+    alert("you lose! " + computerSelection + " beats " + playerSelection);
   } else if (playerSelection == computerSelection) {
-    return "it's a tie!";
-  } else if (playerSelection != computerSelection) {
-    return "please enter the correct spelling for rock, paper, scissors and stop fucking around u bitch!";
-  } else {
-    return "you won " + playerSelection + " beats " + computerSelection;
+    alert("it's a tie!");
+  }
+  // else if (playerSelection != computerSelection) {
+  //   return "please enter the correct spelling for rock, paper, scissors and stop fucking around u bitch!";
+  // }
+  else {
+    p = p + 1;
+    alert("you won " + playerSelection + " beats " + computerSelection);
   }
 }
 
-console.log(playRound(playerSelection, computerSelection));
-console.log(playerSelection, computerSelection);
+// playRound(
+//   (playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase()),
+//   computerSelection
+// );
+// console.log(playerSelection, computerSelection);
+
+function game() {
+  for (i = 0; i < 5; i++) {
+    // cS = computerSelection;
+    // playerSelection;
+    playRound();
+  }
+}
+
+// console.log(game());
+game();
