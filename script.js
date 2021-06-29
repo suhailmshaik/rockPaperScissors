@@ -9,16 +9,18 @@ function computerPlay() {
   }
 }
 
-// console.log(computerSelection);
+let c = 0;
+let p = 0;
 
-playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+// console.log(computerSelection);
+let playerSelection;
+// playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
 // computerSelection;
 
 function playRound() {
-  let c = 0;
-  let p = 0;
   computerSelection = computerPlay();
   playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+
   // console.log(playerSelection, computerSelection);
 
   // if (playerSelection != computerSelection) {
@@ -64,7 +66,11 @@ function game() {
   for (i = 0; i < 5; i++) {
     playRound();
   }
+  if (p > c) {
+    alert("You Won!");
+  } else {
+    alert("computer won");
+  }
 }
 
-// console.log(game());
 game();
