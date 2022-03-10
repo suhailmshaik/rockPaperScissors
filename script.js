@@ -1,70 +1,72 @@
-// computerPlay() picks either rock, paper or scissors randomly
+//this function generates compter's selection
+let computerPlay = () => {
+  let ran = Math.ceil(Math.random() * 3);
 
-function computerPlay() {
-  let computer = Math.floor(Math.random() * 3) + 1;
-  if (computer == 1) {
-    return "rock";
-  } else if (computer == 2) {
-    return "paper";
-  } else if (computer == 3) {
-    return "scissors";
+  switch (ran) {
+    case 1:
+      return "rock";
+    case 2:
+      return "paper";
+    case 3:
+      return "scissors";
   }
-}
+};
 
-// variables "c" and "p" store the scores for the game
-// c for computer and p for player
-// c increases by 1 if computer wins in a round and p increases by 1 if player wins a round
+//this function prompts user to select either rock or paper or scissor
+let userPlay = () => {
+  let u = prompt("Select 1 for rock, 2 for paper, 3 for scissor");
+  switch (u) {
+    case "1":
+      return "rock";
+    case "2":
+      return "paper";
+    case "3":
+      return "scissors";
+    default:
+      return "choose the valid option";
+  }
+};
 
-let c = 0;
-let p = 0;
+let c = 0; //c variable stores score for the computer
+let p = 0; //p variable stores score for the player
 
-// playRound() asks the user for an input through prompt() and assigns the input as playerSelection
-// computerPlay() value is assigned as computerSelection
-// then it evaluates the following logic and gives out the result(round's winner) through alert
-// rock > scissors
-// paper > rock
-// scissors > paper
-
-function playRound() {
-  computerSelection = computerPlay();
-  playerSelection = prompt("pick one: rock,paper or scissors").toLowerCase();
+//this function plays a round of the game and returns score
+let playRound = (playerSelection, computerSelection) => {
+  // console.log(`player selection: ${playerSelection}`);
+  // console.log(`computer selection: ${computerSelection}`);
 
   if (playerSelection == "rock" && computerSelection == "paper") {
-    c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
-    return c;
+    return (c = c + 1);
   } else if (playerSelection == "paper" && computerSelection == "scissors") {
-    c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
-    return c;
+    return (c = c + 1);
   } else if (playerSelection == "scissors" && computerSelection == "rock") {
-    c = c + 1;
     alert("you lose! " + computerSelection + " beats " + playerSelection);
-    return c;
+    return (c = c + 1);
   } else if (playerSelection == computerSelection) {
     alert("it's a tie!");
   } else {
-    p = p + 1;
     alert("you won " + playerSelection + " beats " + computerSelection);
-    //   );
-    return p;
+    return (p = p + 1);
   }
-}
+};
 
-// game() runs playRound() for 5 times and calculates the values of "c" and "p"
-// if c > p = computer won
-// else if p > c = player won
-// and gives out an alert on who won the game
-
-function game() {
+//this function runs the game for 5 rounds and alerts the result to the user
+let game = () => {
   for (i = 0; i < 5; i++) {
-    playRound();
+    playRound(userPlay(), computerPlay());
   }
-  if (p > c) {
+
+  if (c > p) {
+    alert("Computer Won!");
+  } else if (p > c) {
     alert("You Won!");
-  } else {
-    alert("computer won");
+  } else if (p == c) {
+    alert("It's a Tie Bitch!");
   }
-}
+  console.log(`my score: ${p}`);
+  console.log(`computer's score: ${c}`);
+};
 
 game();
